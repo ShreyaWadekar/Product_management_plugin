@@ -17,7 +17,8 @@ class PM_Product_List {
 	public function get_products(
     $paged = 1,
     $per_page = 10,
-    $sort = ''
+    $sort = '',
+    $search = ''
 ) {
 
 	$args = array(
@@ -26,6 +27,9 @@ class PM_Product_List {
     'page'   => $paged,
     'return' => 'objects',
 );
+if ( ! empty( $search ) ) {
+    $args['s'] = $search;
+}
 
 switch ( $sort ) {
 

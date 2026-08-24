@@ -25,19 +25,36 @@ class PM_Shortcode {
 
 		$product_list = new PM_Product_List();
 
-$paged = isset( $_GET['pm_page'] ) ? absint( $_GET['pm_page'] ) : 1;
+$paged = isset( $_GET['pm_page'] )
+    ? absint( $_GET['pm_page'] )
+    : 1;
 
 $sort = isset( $_GET['pm_sort'] )
     ? sanitize_text_field( $_GET['pm_sort'] )
     : '';
 
+$search = isset( $_GET['pm_search'] )
+    ? sanitize_text_field( $_GET['pm_search'] )
+    : '';
+
 $products = $product_list->get_products(
     $paged,
     10,
-    $sort
+    $sort,
+    $search
 );
 
-$total_products = wp_count_posts( 'product' )->publish;
+$count_args = array(
+    'status' => array( 'publish' ),
+    'limit'  => -1,
+    'return' => 'ids',
+);
+
+if ( ! empty( $search ) ) {
+    $count_args['s'] = $search;
+}
+
+$total_products = count( wc_get_products( $count_args ) );
 
 $total_pages = ceil( $total_products / 10 );
 

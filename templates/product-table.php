@@ -13,12 +13,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     <div class="pm-left-tools">
 
-        <input
-            type="text"
-            id="pm-search"
-            placeholder="Search products..."
-        >
-
+        <input 
+    type="text" 
+    id="pm-search" 
+    placeholder="Search products..."
+    value="<?php echo esc_attr( $search ); ?>"
+>
     </div>
 
     <div class="pm-right-tools">
@@ -186,29 +186,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</tbody>
 
 	</table>
+   <?php if ( $total_pages > 1 ) : ?>
+
     <div class="pm-pagination">
 
-<?php
-echo '<pre>';
-echo 'Total Products: ' . $total_products . '<br>';
-echo 'Total Pages: ' . $total_pages . '<br>';
-echo 'Current Page: ' . $paged . '<br>';
-echo '</pre>';
-echo paginate_links(
-    array(
-        'base'      => esc_url( add_query_arg( 'pm_page', '%#%' ) ),
-        'format'    => '',
-        'current'   => max( 1, $paged ),
-        'total'     => $total_pages,
-        'prev_text' => '« Previous',
-        'next_text' => 'Next »',
-        'add_args'  => array(
-            'pm_sort' => $sort,
-        ),
-    )
-);
-?>
+        <?php
+        echo paginate_links(
+            array(
+                'base'      => esc_url( add_query_arg( 'pm_page', '%#%' ) ),
+                'format'    => '',
+                'current'   => max( 1, $paged ),
+                'total'     => $total_pages,
+                'prev_text' => '« Previous',
+                'next_text' => 'Next »',
+                'add_args'  => array(
+                    'pm_sort'   => $sort,
+                    'pm_search' => $search,
+                ),
+            )
+        );
+        ?>
 
-</div>
+    </div>
+
+<?php endif; ?>
 
 </div>
