@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Product Manager
- * Plugin URI: https://example.com
+ * Plugin URI: https://github.com/ShreyaWadekar/Product_management_plugin
  * Description: A reusable WooCommerce product management plugin.
  * Version: 1.0.0
  * Author: Shreya Wadekar
- * Author URI: https://example.com
+ * Author URI: https://github.com/ShreyaWadekar/Product_management_plugin
  * License: GPL v2 or later
  * Text Domain: product-manager
  */

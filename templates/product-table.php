@@ -195,7 +195,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</tr>
 
 		<?php endif; ?>
-
+						
 		</tbody>
 
 	</table>
