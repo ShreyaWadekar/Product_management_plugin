@@ -24,6 +24,7 @@ class PM_Loader {
 		require_once PM_PLUGIN_PATH . 'includes/class-ajax.php';
 		require_once PM_PLUGIN_PATH . 'includes/class-security.php';
 		require_once PM_PLUGIN_PATH . 'includes/class-helper.php';
+		require_once PM_PLUGIN_PATH . 'includes/class-pm-admin-page.php';
 
 	}
 
@@ -40,6 +41,8 @@ class PM_Loader {
 		new PM_Security();
 
 		new PM_Helper();
+
+		new PM_Admin_Page();
 
 	}
 }

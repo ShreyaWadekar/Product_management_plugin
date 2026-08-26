@@ -13,13 +13,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     <div class="pm-left-tools">
 
+    <div class="pm-search-wrapper">
+
         <input 
-    type="text" 
-    id="pm-search" 
-    placeholder="Search products..."
-    value="<?php echo esc_attr( $search ); ?>"
->
+            type="text" 
+            id="pm-search" 
+            placeholder="Search products..."
+            value="<?php echo esc_attr( $search ); ?>"
+        >
+
+        <button 
+            type="button" 
+            id="pm-clear-search"
+            aria-label="Clear search"
+        >
+            Clear
+        </button>
+
     </div>
+
+</div>
 
     <div class="pm-right-tools">
 

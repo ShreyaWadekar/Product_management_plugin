@@ -298,4 +298,24 @@ $('#pm-search').on('keydown', function (e) {
 
 });
 
+// Clear Search
+$(document).on('click', '#pm-clear-search', function (e) {
+
+    e.preventDefault();
+
+    // Clear the search input immediately
+    $('#pm-search').val('');
+
+    let url = new URL(window.location.href);
+
+    // Remove search parameter
+    url.searchParams.delete('pm_search');
+
+    // Reset pagination
+    url.searchParams.delete('pm_page');
+
+    // Reload page with all products
+    window.location.href = url.toString();
+
+});
 });
