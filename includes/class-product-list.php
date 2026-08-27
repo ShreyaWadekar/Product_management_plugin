@@ -42,7 +42,7 @@ switch ( $sort ) {
         $args['orderby'] = 'title';
         $args['order']   = 'DESC';
         break;
-
+                            
     case 'newest':
         $args['orderby'] = 'date';
         $args['order']   = 'DESC';
